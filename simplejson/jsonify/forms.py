@@ -5,8 +5,10 @@ class IndexForm(forms.Form):
     """
         Basic Form with diff-diff fields
     """
+
     GENDER_CHOICES = [('male', 'Male'), ('female', 'Female')]
     EXPORT_CHOICES = [('json', 'JSON'), ('yaml', 'YAML')]
+
 
     export_type = forms.ChoiceField(label='Data Export Type', choices=EXPORT_CHOICES, widget=forms.RadioSelect({
         'class': 'radio-inline',
@@ -19,8 +21,7 @@ class IndexForm(forms.Form):
     gender = forms.ChoiceField(label='Gender', choices=GENDER_CHOICES, widget=forms.RadioSelect({
         'class': 'radio-inline'
     }))
-    # number = forms.CharField(label='Phone Number',
-    #                          widget=forms.TextInput(attrs={'type':'number'}))
+
     number = forms.CharField(required=True,
                              widget=forms.TextInput(attrs={'pattern': '[0-9]+', 'maxlength': 10,
                                                            'placeholder': 'Enter your 10 digit phone number'}))

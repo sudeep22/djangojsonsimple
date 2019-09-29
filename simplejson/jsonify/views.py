@@ -18,9 +18,6 @@ class IndexView(FormView):
     template_name = 'index.html'
     data = None
 
-    def get_json_data(self):
-        return json.dumps(self.data)
-
     def form_valid(self, form):
         """If the form is valid, return YAML/JSON file."""
 
